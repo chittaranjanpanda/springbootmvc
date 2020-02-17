@@ -6,7 +6,7 @@
   - name: create docker image using jar file
     command: docker build -t chittaranjanpanda/demoapp:latest .
     args:
-      chdir: home/ubuntu/artifacts
+      chdir: /artifacts
       
   - name: push image on to dockerhub
     command: docker push chittaranjanpanda/demoapp:latest
