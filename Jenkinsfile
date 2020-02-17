@@ -42,7 +42,7 @@ pipeline {
 			steps {
 				kubernetesDeploy(
 					configs: 'workloads-jenkins.yml', 
-					kubeconfigId: 'KUBERNATES_CONFIG',
+					kubeconfigId: 'MK8S_CONFIG',
 					enableConfigSubstitution: true
 					)
 				}
