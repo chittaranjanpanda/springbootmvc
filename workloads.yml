@@ -16,6 +16,7 @@ spec:
       containers:
       - name: demoapp
         image: chittaranjanpanda/demoapp:latest
+        imagePullPolicy: Always
 
 ---
 apiVersion: v1
