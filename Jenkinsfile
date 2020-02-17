@@ -32,7 +32,7 @@ pipeline {
 		stage('Push Docker Image'){
 			steps {
 				withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'DOCKER_HUB_PASSWORD')]) {
-					sh "docker login -u chittaranjanpanda -p ${DOKCER_HUB_PASSWORD}"
+					sh "docker login -u chittaranjanpanda -p ${DOCKER_HUB_PASSWORD}"
 				}
 				sh 'chittaranjanpanda/demoapp:$BUILD_NUMBER'
 			}
