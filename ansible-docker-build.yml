@@ -1,6 +1,5 @@
 ---
 - hosts: cd-server
-  become: true
 
   tasks:
   - name: create docker image using jar file
