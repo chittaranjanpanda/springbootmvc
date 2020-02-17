@@ -11,11 +11,11 @@
       dest: deploy/workloads-ansible.yml
   
   - name: create a deployment
-    command: kubectl apply -f workloads-ansible.yml
+    command: microk8s.kubectl apply -f workloads-ansible.yml
     args:
       chdir: deploy
  
   - name: update deployment with new pods if image updated in docker hub
-    command: kubectl rollout restart deployment.apps/demoapp
+    command: microk8s.kubectl rollout restart deployment.apps/demoapp
     args:
       chdir: deploy
