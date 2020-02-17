@@ -22,7 +22,9 @@ pipeline {
 			}
 		}
 		stage('Build Docker Image'){
-			sh 'docker build -t dockerhandson/spring-boot-mongo .'
+			steps {
+				sh 'docker build -t chittaranjanpanda/demoapp:$BUILD_NUMBER .'
+			}
 		}
       }
 }
