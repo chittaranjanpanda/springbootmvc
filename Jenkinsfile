@@ -25,7 +25,7 @@ pipeline {
 		
 		stage('Build Docker Image'){
 			steps {
-				sh 'docker build -t chittaranjanpanda/demoapp:$BUILD_NUMBER .'
+				sh 'docker build -t chittaranjanpanda/demoapp:$BUILD_TAG .'
 			}
 		}
 		
@@ -34,8 +34,8 @@ pipeline {
 				withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'DOCKER_HUB_PASSWORD')]) {
 					sh "docker login -u chittaranjanpanda -p ${DOCKER_HUB_PASSWORD}"
 				}
-				sh 'docker push chittaranjanpanda/demoapp:$BUILD_NUMBER'
-				sh 'docker rmi chittaranjanpanda/demoapp:$BUILD_NUMBER'
+				sh 'docker push chittaranjanpanda/demoapp:$BUILD_TAG'
+				sh 'docker rmi chittaranjanpanda/demoapp:$BUILD_TAG'
 			}
 		}
 		stage("Deploy To Kuberates Cluster"){
