@@ -38,5 +38,14 @@ pipeline {
 				sh 'docker rmi chittaranjanpanda/demoapp:$BUILD_NUMBER'
 			}
 		}
+		stage("Deploy To Kuberates Cluster"){
+			steps {
+				kubernetesDeploy(
+					configs: 'workloads-jenkins.yml', 
+					kubeconfigId: 'KUBERNATES_CONFIG',
+					enableConfigSubstitution: true
+					)
+				}
+		}
       }
 }
