@@ -35,6 +35,7 @@ pipeline {
 					sh "docker login -u chittaranjanpanda -p ${DOCKER_HUB_PASSWORD}"
 				}
 				sh 'docker push chittaranjanpanda/demoapp:$BUILD_NUMBER'
+				sh 'docker rmi chittaranjanpanda/demoapp:$BUILD_NUMBER'
 			}
 		}
       }
