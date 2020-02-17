@@ -9,7 +9,7 @@ pipeline {
    stages {
         stage('SCM Checkout'){
 		 steps {
-			git url: 'https://github.com/MithunTechnologiesDevOps/spring-boot-mongo-docker.git',branch: 'master'
+			git url: 'https://github.com/chittaranjanpanda/springbootmvc.git',branch: 'master'
 		 }
 		}
 		
