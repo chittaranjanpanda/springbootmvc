@@ -5,13 +5,17 @@
   user: ubuntu
  
   tasks: 
-  - name: Ansible files to mk8s-server
+  - name: workload files to mk8s-server
     copy:
       src: workloads-ansible.yml
       dest: deploy/workloads-ansible.yml
   
   - name: create a deployment
     command: kubectl apply -f workloads-ansible.yml
+    args:
+      chdir: deploy
  
   - name: update deployment with new pods if image updated in docker hub
     command: kubectl rollout restart deployment.apps/demoapp
+    args:
+      chdir: deploy
