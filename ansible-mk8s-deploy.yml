@@ -1,6 +1,6 @@
 ---
 - name: Create pods using deployment 
-  hosts: [mk8s-server] 
+  hosts: mk8s-server
   become: true
   user: ubuntu
  
