@@ -10,8 +10,8 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
+     maxUnavailable: 25%
+     maxSurge: 1
   template: # template for the pods
     metadata:
       labels:
@@ -21,6 +21,15 @@ spec:
       - name: demoapp
         image: chittaranjanpanda/demoapp:latest
         imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+             path: /
+             port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
 
 ---
 apiVersion: v1
